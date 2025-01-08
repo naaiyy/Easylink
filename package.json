@@ -1,0 +1,39 @@
+{
+  "name": "easylink",
+  "version": "0.0.1",
+  "description": "A revolutionary job platform reimagining how students and employers connect in France, focusing on streamlining the work-study contract search process with innovative features like one-click applications and dynamic profile management.",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "job-platform",
+    "student-employment",
+    "work-study",
+    "alternance",
+    "france",
+    "recruitment",
+    "professional-networking",
+    "hr-suite"
+  ],
+  "author": "naaiyy",
+  "license": "ISC",
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/naaiyy/Easylink.git"
+  },
+  "bugs": {
+    "url": "https://github.com/naaiyy/Easylink/issues"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "typescript": "^5.7.2"
+  }
+}
