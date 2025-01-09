@@ -14,9 +14,9 @@ module.exports = {
         'landing-page',
         'services',
         'microservices',
-        'deps'
-      ]
+        'deps',
+      ],
     ],
-    'subject-case': [2, 'always', 'sentence-case']
-  }
+    'subject-case': [2, 'always', 'sentence-case'],
+  },
 };
