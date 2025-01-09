@@ -1,4 +1,6 @@
-export default {
+import { defineConfig } from '@commitlint/config-conventional';
+
+export default defineConfig({
   extends: ['@commitlint/config-conventional'],
   rules: {
     'type-enum': [
@@ -42,4 +44,4 @@ export default {
     'subject-empty': [2, 'never'],
     'subject-full-stop': [2, 'never', '.'],
   },
-};
+});

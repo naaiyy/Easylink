@@ -1,8 +1,8 @@
 {
   "name": "easylink",
   "version": "0.0.2",
+  "description": "",
   "type": "module",
-  "description": "A revolutionary job platform reimagining how students and employers connect in France, focusing on streamlining the work-study contract search process with innovative features like one-click applications and dynamic profile management.",
   "private": true,
   "workspaces": [
     "packages/*"

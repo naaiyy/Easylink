@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [main, staging, development]
 
+permissions:
+  contents: read
+  pull-requests: read
+
 jobs:
   validate:
     name: Validate and Build
