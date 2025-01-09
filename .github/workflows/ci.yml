@@ -73,13 +73,14 @@ jobs:
       - name: Generate documentation
         run: |
           echo "Generating TypeDoc documentation..."
-          pnpm typedoc
-        continue-on-error: true # Don't fail CI if docs fail
+          pnpm typedoc || exit 0  # Make it optional during initial setup
+        continue-on-error: true
 
-      - name: Upload documentation artifacts
-        if: success()
-        uses: actions/upload-artifact@v3
-        with:
-          name: documentation
-          path: docs/
-          retention-days: 30
+      # We'll enable this later when we have actual documentation
+      # - name: Upload documentation artifacts
+      #   if: success()
+      #   uses: actions/upload-artifact@v3
+      #   with:
+      #     name: documentation
+      #     path: docs/
+      #     retention-days: 30
