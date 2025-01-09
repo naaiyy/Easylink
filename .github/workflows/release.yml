@@ -13,9 +13,10 @@ jobs:
   release:
     name: Release
     # Only run if CI was successful and we're on main branch
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: |
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.head_branch == 'main'
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -27,13 +28,34 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '20.8.1'
+
+      - name: Debug Node Version
+        run: |
+          echo "Node version:"
+          node --version
+          echo "NPM version:"
+          npm --version
+          which node
+          echo "Node path:"
+          echo $PATH
 
       - name: Install pnpm
         uses: pnpm/action-setup@v2
         with:
           version: '8'
           run_install: false
+
+      - name: Debug pnpm Node Version
+        run: |
+          echo "pnpm Node version:"
+          pnpm node -v
+          echo "pnpm info:"
+          pnpm config list
+          echo "which node (from pnpm):"
+          pnpm exec which node
+          echo "Node version after pnpm:"
+          node -v
 
       - name: Get pnpm store directory
         shell: bash
@@ -51,11 +73,17 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Verify Node Version Again
+        run: |
+          echo "Final Node version check:"
+          node --version
+          which node
+
       - name: Release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.SEMANTIC_RELEASE_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.SEMANTIC_RELEASE_TOKEN }}
         run: |
           echo "Starting release process..."
-          pnpm semantic-release
+          npx semantic-release
