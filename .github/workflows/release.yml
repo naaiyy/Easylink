@@ -46,6 +46,15 @@ jobs:
           version: '8'
           run_install: false
 
+      - name: Debug pnpm Node Version
+        run: |
+          echo "pnpm Node version:"
+          pnpm node -v
+          echo "pnpm info:"
+          pnpm config list
+          echo "which node (from pnpm):"
+          pnpm node which node
+
       - name: Get pnpm store directory
         shell: bash
         run: |
