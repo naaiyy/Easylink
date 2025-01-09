@@ -15,9 +15,9 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": {
-      "@easylink/*": ["./packages/*/src"]
+      "@easylink/*": ["./packages/*"]
     }
   },
-  "exclude": ["**/node_modules", "**/dist", "**/build", "**/.next"],
-  "include": ["packages/*/src/**/*"]
+  "include": ["packages/**/*"],
+  "exclude": ["**/node_modules", "**/dist", "**/build", "**/.next"]
 }
