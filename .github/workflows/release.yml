@@ -25,17 +25,10 @@ jobs:
           persist-credentials: false # Important for semantic-release git plugin
           ref: main # Force checkout of main branch
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: '8'
-          run_install: false
-
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version-file: 'package.json'
-          cache: 'pnpm'
+          node-version: '20.8.1'
 
       - name: Debug Node Version
         run: |
@@ -46,6 +39,12 @@ jobs:
           which node
           echo "Node path:"
           echo $PATH
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: '8'
+          run_install: false
 
       - name: Get pnpm store directory
         shell: bash
@@ -76,4 +75,4 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo "Starting release process..."
-          pnpm semantic-release
+          npx semantic-release
