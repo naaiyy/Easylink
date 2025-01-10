@@ -27,13 +27,6 @@
       }
     ],
     [
-      "@semantic-release/npm",
-      {
-        "pkgRoot": ".",
-        "npmPublish": false
-      }
-    ],
-    [
       "@semantic-release/github",
       {
         "assets": ["CHANGELOG.md"]
@@ -42,7 +35,7 @@
     [
       "@semantic-release/git",
       {
-        "assets": ["package.json", "CHANGELOG.md"],
+        "assets": ["CHANGELOG.md"],
         "message": "chore(release): Release version ${nextRelease.version} [skip ci]"
       }
     ]
