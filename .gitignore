@@ -29,3 +29,7 @@ yarn-error.log*
 # Act configuration
 .actrc
 .act/.secrets/
+
+# TypeScript
+*.tsbuildinfo
+dist/
