@@ -24,7 +24,8 @@
     [
       "@semantic-release/npm",
       {
-        "pkgRoot": "."
+        "pkgRoot": ".",
+        "npmPublish": false
       }
     ],
     [
@@ -37,7 +38,7 @@
       "@semantic-release/git",
       {
         "assets": ["package.json", "CHANGELOG.md"],
-        "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+        "message": "chore(release): Release version ${nextRelease.version} [skip ci]"
       }
     ]
   ]
