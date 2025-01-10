@@ -32,8 +32,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Important for semantic-release
-          persist-credentials: false # Don't persist the token
+          fetch-depth: 0
+          token: ${{ secrets.SEMANTIC_RELEASE_TOKEN }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
