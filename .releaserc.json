@@ -10,8 +10,14 @@
           { "type": "docs", "scope": "README", "release": "patch" },
           { "type": "refactor", "release": "patch" },
           { "type": "style", "release": "patch" },
+          { "type": "feat", "release": "minor" },
+          { "type": "fix", "release": "patch" },
           { "scope": "no-release", "release": false }
-        ]
+        ],
+        "parserOpts": {
+          "mergePattern": "^Merge pull request #(\\d+) from (.*)$",
+          "mergeCorrespondence": ["id", "source"]
+        }
       }
     ],
     "@semantic-release/release-notes-generator",
