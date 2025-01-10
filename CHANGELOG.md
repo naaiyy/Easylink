@@ -1,3 +1,9 @@
+## [0.2.1](https://github.com/naaiyy/Easylink/compare/v0.2.0...v0.2.1) (2025-01-10)
+
+### Bug Fixes
+
+- Empty commit to test patch release ([5eff270](https://github.com/naaiyy/Easylink/commit/5eff270639f0093302561650fc1288c19aabc709))
+
 # [0.2.0](https://github.com/naaiyy/Easylink/compare/v0.1.0...v0.2.0) (2025-01-10)
 
 ### Bug Fixes
