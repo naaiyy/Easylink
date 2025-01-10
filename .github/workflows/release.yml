@@ -18,12 +18,25 @@ jobs:
       (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main')
     runs-on: ubuntu-latest
     steps:
+      - name: Debug Event
+        run: |
+          echo "Event name: ${{ github.event_name }}"
+          echo "Workflow run conclusion: ${{ github.event.workflow_run.conclusion }}"
+          echo "Head branch: ${{ github.event.workflow_run.head_branch }}"
+          echo "Head SHA: ${{ github.event.workflow_run.head_sha }}"
+
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0 # Important for semantic-release
           persist-credentials: false # Important for semantic-release git plugin
           ref: main # Force checkout of main branch
+          token: ${{ secrets.SEMANTIC_RELEASE_TOKEN }}
+
+      - name: Debug Git Status
+        run: |
+          git branch --show-current
+          git rev-parse HEAD
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
